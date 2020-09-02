@@ -20,7 +20,6 @@ import VirtualList from './components/virtual-list'
 import Item from './components/item'
 import Mock from 'mockjs'
 let items = []
-//循环出
 for (let i = 0; i < 1000; i++) {
   items.push({ id: i, value: Mock.Random.sentence() })
 }
