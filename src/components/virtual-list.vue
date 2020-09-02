@@ -95,7 +95,8 @@ export default {
       }
       //用节点更新缓存
       nodes.forEach(node => {
-        // 获取节点的位置
+
+        // 获取节点
         let rect = node.getBoundingClientRect()
         let height = rect.height //真实的高度
         let index = +node.getAttribute('vid')
