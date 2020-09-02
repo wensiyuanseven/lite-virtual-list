@@ -49,6 +49,7 @@ export default {
       return this.items.map((item, index) => ({ ...item, index }))
     },
     // 渲染可见的数据【需要有定义开头和结尾，因为滚动的时候需要重新算出开头和结尾】
+    // 渲染可见的数据
     visibleData() {
       // 把上下的可是区域扩大一倍
       let start = this.start - this.prevCount
