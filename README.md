@@ -13,6 +13,10 @@
 
 - **支持数据动态追加**
 
+ #### 文档 <https://wensiyuanseven.github.io/lite-virtual-list>
+
+ #### 案例 <https://wensiyuanseven.github.io/lite-virtual-list/example>
+
 ## 用法
 
 ### 安装
@@ -121,6 +125,3 @@ Vue.use(liteVirtualList)
 
  页面滚动到底部时触发 ,可结合`distance`属性配置距离底部多远时触发此回调，默认为`50`
  
- ### 详细文档 <https://wensiyuanseven.github.io/lite-virtual-list>
-
- ### 案例 <https://wensiyuanseven.github.io/lite-virtual-list/example>
