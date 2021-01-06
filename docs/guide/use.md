@@ -37,7 +37,7 @@ Vue.use(liteVirtualList)
 
 | Props    | Type  |Default| Required   | Description                                   |
 |:---------|:------|:-----------|:------------|:----------------------------------------
-| data     | Array |[ ]| ✓          | 数据源 每个item必须传入一个唯一id值  `{ id : Number | String }` |
+| data     | Array |[ ]| ✓          | 数据源,数据源中的每个item必须是一个对象, 每个item必须传入一个唯一id值  `{ id : Number | String }`,当type为`waterfall`时,每个item传入height字段 `{ height : Number | String }`,即每一项item的高度|
 | type | String    | | ✓ |  type可指定三种类型 `fixed` `variable` `waterfall` fixed : item的高度为固定值    variable : item的高度根据内容撑起  waterfall : 瀑布流布局                              |
 | remain   | Number \| String    | |  ✓  |  每屏可见的数据条数 |
 | size   | Number \| String    |  |   |  size是每一项item的高度。 当type为 `fixed`或 `variable` 时size为必传项。 type为`variable`时 size会被当做每一项的默认高度，当DOM渲染完成后会用真实高度替换此默认高度 |
@@ -70,7 +70,7 @@ Vue.use(liteVirtualList)
 
   页面滚动时触发
 
-  该回调会被传入一个对象
+  该回调会返回一个对象
 
   当type为`fixed`或`variable`时,该对象包含以下 property :
 
@@ -94,11 +94,11 @@ Vue.use(liteVirtualList)
 
  DOM渲染到页面之后触发
 
-  当type为`fixed`或`variable`时,该回调会被传入
+  当type为`fixed`或`variable`时,该回调会返回
 
   `renderData` : 渲染到页面上的数据
 
-  当type为`variable`时,该回调会被传入一个对象,该对象包含以下 property :
+  当type为`variable`时,该回调会返回一个对象,该对象包含以下 property :
 
 - `renderLeftData` : 左列滚动被渲染的数据
 - `renderLeftData` : 右列滚动时渲染的数据

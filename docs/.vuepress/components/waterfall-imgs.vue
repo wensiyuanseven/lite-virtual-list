@@ -45,8 +45,6 @@ export default {
       this.lazyLoad()
     })
   },
-  // DOM 元素还在请求网络的时候就被删除了；（比如图片在加载的过程中）ajax会出现canceled的状态
-  // 做了一些操作使加载变得不必要的；（如你改变了正在加载的iframe 的src）；
   methods: {
     lazyLoad(event = {}) {
       let leftImgs = document.querySelectorAll('.left-item .imgs')
@@ -70,10 +68,9 @@ export default {
       }
     },
     imgLoad(item, event) {
-      //即使图片和占位图已经加载完毕 再次切换src时也会触发load回调
       if (event.target.src.indexOf('http') === 0) {
         if (!item.visible) {
-          // 说明当前资源已经被加载过
+          // 当前资源已被加载过
           item.visible = true
           this.cacheImgIndex.push(item.id)
           this.$set(this.items, item.id, item)
@@ -91,18 +88,7 @@ export default {
         this.loadindex++
         let items = []
         for (let i = this.loadindex * count; i < this.loadindex * count + count; i++) {
-          let width = random([200, 500])
-          let height = random([200, 500])
-          let url = Mock.Random.image(`${width}x${height}`, `${Mock.Random.color()}`)
-          let imgHeight = this.setImgHeight(width, height)
-          let contentHeight = random([80, 120])
-          items.push({
-            id: i,
-            url: url,
-            contentHeight: contentHeight,
-            imgHeight: imgHeight,
-            height: imgHeight + contentHeight,
-          })
+          items.push(this.getItem(i))
         }
         this.items = [...this.items, ...items]
         this.isLoad = false
@@ -114,21 +100,24 @@ export default {
     getImg() {
       let items = []
       for (let i = 0; i < count; i++) {
-        let width = random([200, 500])
-        let height = random([200, 500])
-        let url = Mock.Random.image(`${width}x${height}`, `${Mock.Random.color()}`)
-        let imgHeight = this.setImgHeight(width, height)
-        let contentHeight = random([80, 120])
-        items.push({
-          id: i,
-          url: url,
-          visible: false,
-          contentHeight: contentHeight,
-          imgHeight: imgHeight,
-          height: imgHeight + contentHeight,
-        })
+        items.push(this.getItem(i))
       }
       return items
+    },
+    getItem(i) {
+      let width = random([200, 500])
+      let height = random([200, 500])
+      let url = Mock.Random.image(`${width}x${height}`, `${Mock.Random.color()}`)
+      let imgHeight = this.setImgHeight(width, height)
+      let contentHeight = random([80, 120])
+      return {
+        id: i,
+        url: url,
+        visible: false,
+        contentHeight: contentHeight,
+        imgHeight: imgHeight,
+        height: imgHeight + contentHeight,
+      }
     },
   },
 }
@@ -170,7 +159,6 @@ img:not([src]) {
 .info {
   text-align: center;
   font-weight: bold;
-  /* color: #3d3d3d; */
   color: #7c7c7c;
   font-size: 16px;
 }
