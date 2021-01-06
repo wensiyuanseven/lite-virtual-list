@@ -1,22 +1,72 @@
 {
-  "name": "vurtual-lesson",
-  "version": "0.1.0",
-  "private": true,
+  "name": "lite-virtual-list",
+  "version": "0.1.2",
+  "private": false,
+  "author": "wensiyuan siyusnseven@gmail.com",
+  "description": "a vue components support waterfall flow and have large data lists with high scrolling performance",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name lite-virtual-list --dest lib ./src/lib/index.js",
+    "docs:dev": "vuepress dev docs --temp .temp",
+    "docs:build": "vuepress build docs",
+    "d": "bash deploy.sh"
   },
-  "dependencies": {
-    "core-js": "^3.6.4",
-    "lodash": "^4.17.15",
-    "mockjs": "^1.1.0",
-    "vue": "^2.6.11"
+  "main": "lib/lite-virtual-list.umd.min.js",
+  "unpkg": "lib/lite-virtual-list.umd.min.js",
+  "miniprogram": "lib",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.2.0",
-    "@vue/cli-service": "~4.2.0",
-    "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2",
-    "vue-template-compiler": "^2.6.11"
-  }
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.5.0",
+    "mockjs": "^1.1.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "keywords": [
+    "vue",
+    "big-data",
+    "long-list",
+    "scroll-list",
+    "virtual-list",
+    "list-rendering",
+    "waterfall"
+  ],
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": false
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wensiyuanseven/lite-virtual-list.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wensiyuanseven/lite-virtual-list/issues"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
