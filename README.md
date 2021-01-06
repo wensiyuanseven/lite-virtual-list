@@ -5,14 +5,26 @@
 
 ### 案例 <https://wensiyuanseven.github.io/lite-virtual-list/example>
 
-# 用法
+## 特点
 
-## 安装
+- **支持固定高度**
+
+- **支持可变高度**
+
+- **支持两栏瀑布流布局**
+
+- **渲染DOM可配置多屏**
+
+- **支持数据动态追加**
+
+## 用法
+
+### 安装
 
 ``` sh
 npm install lite-virtual-list
 ```
-## 使用
+### 使用
 ```js
 import liteVirtualList from "lite-virtual-list"
 
