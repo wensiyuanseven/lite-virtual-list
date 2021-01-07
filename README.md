@@ -1,4 +1,5 @@
 # lite-virtual-list
+
  ![version](https://img.shields.io/github/package-json/v/wensiyuanseven/lite-virtual-list) ![last commit](https://img.shields.io/github/last-commit/wensiyuanseven/lite-virtual-list)  ![issues](https://img.shields.io/github/issues/wensiyuanseven/lite-virtual-list)
 
 ## 基于vue的高性能虚拟列表组件库
@@ -9,13 +10,15 @@
 
 - **支持两栏瀑布流布局**
 
-- **渲染DOM可配置多屏**
+- **支持DOM多屏配置**
+
+- **支持状态选择**
 
 - **支持数据动态追加**
 
- #### 文档：<https://wensiyuanseven.github.io/lite-virtual-list>
+#### 文档：<https://wensiyuanseven.github.io/lite-virtual-list>
 
- #### 案例：<https://wensiyuanseven.github.io/lite-virtual-list/example>
+#### 案例：<https://wensiyuanseven.github.io/lite-virtual-list/example>
 
 ## 用法
 
@@ -24,7 +27,9 @@
 ``` sh
 npm install lite-virtual-list
 ```
+
 ### 使用
+
 ```js
 import liteVirtualList from "lite-virtual-list"
 
@@ -124,4 +129,3 @@ Vue.use(liteVirtualList)
 ### loadMore
 
  页面滚动到底部时触发 ,可结合`distance`属性配置距离底部多远时触发此回调，默认为`50`
- 
