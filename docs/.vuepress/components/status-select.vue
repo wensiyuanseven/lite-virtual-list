@@ -58,7 +58,6 @@ export default {
 }
 .index {
   font-weight: bold;
-  margin-right: 2px;
   color: red;
 }
 </style>

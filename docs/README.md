@@ -12,7 +12,7 @@ features:
 - title: 高性能
   details: 渲染十万+数据，不费吹灰之力
 
-- title: 零依赖
-  details: 小巧且无依赖-压缩后仅为3.6kb
+- title: 支持瀑布流
+  details: 根据高度直接生成，无需编写UI布局
 ---
 

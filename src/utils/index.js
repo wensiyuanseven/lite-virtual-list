@@ -1,3 +1,4 @@
+
 export const getCurrentIndex = (value, positions) => {
   let start = 0;
   let end = positions.length - 1;

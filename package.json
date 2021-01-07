@@ -1,6 +1,6 @@
 {
   "name": "lite-virtual-list",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "private": false,
   "author": "wensiyuan siyusnseven@gmail.com",
   "description": "a vue components support waterfall flow and have large data lists with high scrolling performance",
@@ -14,10 +14,11 @@
     "d": "bash deploy.sh"
   },
   "main": "lib/lite-virtual-list.umd.min.js",
-  "unpkg": "lib/lite-virtual-list.umd.min.js",
+  "unpkg": "lib/",
   "miniprogram": "lib",
+  "files": ["lib"],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
