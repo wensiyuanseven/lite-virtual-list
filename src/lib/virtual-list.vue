@@ -183,7 +183,6 @@ export default {
     if (this.type === virtualType.WATERFALL) {
       this.waterfallInfo = { left: [], right: [] }
     }
-    // console.log(this.$refs.scrollBa,'this.$refs.scrollBa')
     this.getScrollFn = throttle(this.handleScroll, this.interval, { leading: false })
   },
   mounted() {

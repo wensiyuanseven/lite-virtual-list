@@ -26,8 +26,8 @@ module.exports = {
       }
     ],
     sidebar: {
-      "/guide/": ["", "use","notice"],
-      "/example/": ["","variable","waterfall"],
+      "/guide/": ["", "use", "notice"],
+      "/example/": ["", "variable", "waterfall", "status"],
       // fallback
       "/": [""]
     }
