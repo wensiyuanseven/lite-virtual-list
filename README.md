@@ -2,35 +2,37 @@
 
  ![version](https://img.shields.io/github/package-json/v/wensiyuanseven/lite-virtual-list) ![last commit](https://img.shields.io/github/last-commit/wensiyuanseven/lite-virtual-list)  ![issues](https://img.shields.io/github/issues/wensiyuanseven/lite-virtual-list)
 
-## 基于vue的高性能虚拟列表组件库
+## Virtual list component library supporting waterfall flow based on Vue
 
-- **支持固定高度**
+- **Support fixed height**
 
-- **支持可变高度**
+- **Support variable height**
 
-- **支持两栏瀑布流布局**
+- **Support two column waterfall flow layout**
 
-- **支持DOM多屏配置**
+- **Support DOM multi screen configuration**
 
-- **支持状态选择**
+- **Support status selection**
 
-- **支持数据动态追加**
+- **Support data dynamic appending**
 
-- **支持动态删除数据**
+- **Support dynamic deletion of data**
 
-#### 文档：<https://wensiyuanseven.github.io/lite-virtual-list>
+[中文文档](https://github.com/wensiyuanseven/lite-virtual-list/blob/master/README_zh-CN.md)
 
-#### 案例：<https://wensiyuanseven.github.io/lite-virtual-list/example>
+ document：<https://wensiyuanseven.github.io/lite-virtual-list>
 
-## 用法
+ example：<https://wensiyuanseven.github.io/lite-virtual-list/example>
 
-### 安装
+## Use
+
+### Install
 
 ``` sh
 npm install lite-virtual-list
 ```
 
-### 使用
+### Use
 
 ```js
 import liteVirtualList from "lite-virtual-list"
@@ -62,28 +64,28 @@ Vue.use(liteVirtualList)
 
 | Props    | Type  |Default| Required   | Description                                   |
 |:---------|:------|:-----------|:------------|:----------------------------------------
-| data     | Array |[ ]| ✓          | 数据源,数据源中的每个item必须是一个对象, 每个item必须传入一个唯一id值  `{ id : Number | String }`,当type为`waterfall`时,每个item传入height字段 `{ height : Number | String }`,即每一项item的高度|
-| type | String    | | ✓ |  type可指定三种类型 `fixed` `variable` `waterfall` fixed : item的高度为固定值    variable : item的高度根据内容撑起  waterfall : 瀑布流布局                              |
-| remain   | Number \| String    | |  ✓  |  每屏可见的数据条数 |
-| size   | Number \| String    |  |   |  size是每一项item的高度。 当type为 `fixed`或 `variable` 时size为必传项。 type为`variable`时 size会被当做每一项的默认高度，当DOM渲染完成后会用真实高度替换此默认高度 |
-| screen   | Array    | [ 1 , 1 ]|   |  可视区前后渲染的屏数。 默认值为`[1,1]`,可视区前后各渲染一屏。 例：:screen="[2,3]" 表示可视区前面渲染两屏，可视区后面渲染三屏。 |
-| distance   | Number \| String    |50|    |  页面滚动时触发`loadMore`回调的距离,默认为`50` |
-| interval   | Number \| String    | 0|   |  `scroll`事件触发间隔,默认为`0` |
-| virtualHieght   | String    | 100%|   |  虚拟列表的高度,默认为`100%`。当type为`fixed`时，高度会根据`size`和`remain`属性动态计算出来，不用传入此值。当type为`variable`或 `waterfall`时，若不传入此属性，外部容器必须声明一个高度值。 |
-| unit   | String    | px |   |  单位，默认为`px` |
-| deleteId   |  Number \| String  |   |  | 动态删除某一项时需要传入当前项目的id值,当type为`fixed`时，不传deleteId,直接`this.data.splice(index,1)`删除也行,此时内部会动态计算高值
-| marginBottom   |  Number \| String     |  0 |  |  每项item的间隔距离。 此属性专门为`type='waterfall'`时提供,type为`fixed`或`variable`时此属性无效 |
+| data     | Array |[ ]| ✓          | Data source: each item in the data source must be an object, and each item must pass in a unique ID value '{ID: number | string}'. When the type is' waterfall ', each item passes in the height field' {height: number | string} ', that is, the height of each item|
+| type | String    | | ✓ |  Type: three types can be specified: fixed, variable, waterfall. Fixed: the height of the item is a fixed value. Variable: the height of the item supports the waterfall layout according to the content                             |
+| remain   | Number \| String    | |  ✓  |  Number of visible data per screen |
+| size   | Number \| String    |  |   |  Size is the height of each item. When type is' fixed 'or' variable ', size is required. When type is' variable ', size will be used as the default height of each item. After DOM rendering, the default height will be replaced by the real height |
+| screen   | Array    | [ 1 , 1 ]|   |  The number of screens rendered before and after the viewable area. The default value is' [1,1] ', rendering one screen before and one screen after the viewable area. Example: screen = [2,3] "means that two screens are rendered in front of the viewable area and three screens are rendered behind the viewable area. |
+| distance   | Number \| String    |50|    |  The distance to trigger the 'loadmore' callback when the page scrolls. The default is' 50` |
+| interval   | Number \| String    | 0|   | `Scroll` event trigger interval, default is `0`  |
+| virtualHieght   | String    | 100%|   |  The height of the virtual list is' 100% 'by default. When the type is' fixed ', the height will be calculated dynamically according to the' size 'and' remain 'attributes. This value is not required to be passed in. When the type is' variable 'or' waterfall ', if this property is not passed in, the external container must declare a height value. |
+| unit   | String    | px |   | Unit, default is `PX` |
+| deleteId   |  Number \| String  |   |  | When dynamically deleting an item, the ID value of the current item needs to be passed in. When the type is' fixed ', the deletion ID is not passed in, and the current item is deleted directly`this.data.splice (index, 1)'delete is OK. At this time, the high value will be calculated dynamically
+| marginBottom   |  Number \| String     |  0 |  |  The distance between items. This property is provided only when type is' waterfall '. It is invalid when type is' fixed' or 'variable' |
 
 ## Slot
 
  ```vue
   <lite-virtual-list >
-    <!-- 默认slot,可拿到每个item数据 -->
+    <!-- The default slot can get the data of each item-->
     <template slot="default" slot-scope="{ item }" >
        <div>{{item.id}}</div>
     </template>
 
-    <!-- 底部 -->
+    <!-- bottom -->
     <template slot="bottom">
       <div>加载中...</div>
     </template>
@@ -94,45 +96,45 @@ Vue.use(liteVirtualList)
 
 ### scroll
 
-  页面滚动时触发
+  Triggered when page scrolls
 
-  该回调会返回一个对象
+  The callback returns an object
 
-  当type为`fixed`或`variable`时,该对象包含以下 property :
+  When the type is' fixed 'or' variable ', the object contains the following properties:
 
-- `scrollTop` : 页面滚动的距离
+- `scrollTop` : How far the page scrolls
 
-- `renderScrollTop` : 渲染区域距离页面滚动的距离
+- `renderScrollTop` : The distance between the render area and the page scroll
 
-- `renderData` : 滚动时渲染的数据
+- `renderData` : Data rendered while scrolling
 
-当type为`waterfall`时,该对象包含以下 property :
+When the type is' waterfall ', the object contains the following properties:
 
-- `scrollTop` : 页面滚动的距离
+- `scrollTop` : How far the page scrolls
 
-- `renderLeftScrollTop` : 左列数据渲染区域距离页面滚动的距离
+- `renderLeftScrollTop` :  Distance between the data rendering area in the left column and the page scrolling
 
-- `renderRightScrollTop` : 右列数据渲染区域距离页面滚动的距离
-- `renderLeftData` : 左列滚动被渲染的数据
-- `renderLeftData` : 右列滚动时渲染的数据
+- `renderRightScrollTop` :  Distance between the right column data rendering area and the page scrolling
+- `renderLeftData` :  Left column scrolls the rendered data
+- `renderLeftData` : Right column scrolls the rendered data
 
 ### domUpdateSuccess
 
- DOM渲染到页面之后触发
+ Trigger after DOM rendering to page
 
-  当type为`fixed`或`variable`时,该回调会返回
+  When the type is' fixed 'or' variable ', the callback will return
 
-  `renderData` : 渲染到页面上的数据
+  `renderData` : Data rendered to the page
 
-  当type为`variable`时,该回调会返回一个对象,该对象包含以下 property :
+  When the type is' variable ', the callback will return an object containing the following properties:
 
-- `renderLeftData` : 左列滚动被渲染的数据
-- `renderLeftData` : 右列滚动时渲染的数据
+- `renderLeftData` : Left column scrolls the rendered data
+- `renderLeftData` : Right column scrolls the rendered data
 
 ### loadMore
 
- 页面滚动到底部时触发 ,可结合`distance`属性配置距离底部多远时触发此回调，默认为`50`
+ This callback is triggered when the page scrolls to the bottom. You can configure how far it is from the bottom in combination with the 'distance' property. The default value is' 50 '`
 
 ### deleteSuccess
 
- 动态删除某一项item成功后会触发,该回调会返回当前被删除项数据
+ Dynamic deletion of an item will be triggered after success, and the callback will return the data of the currently deleted item
