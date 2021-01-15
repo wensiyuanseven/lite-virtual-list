@@ -64,7 +64,7 @@ Vue.use(liteVirtualList)
 
 | Props    | Type  |Default| Required   | Description                                   |
 |:---------|:------|:-----------|:------------|:----------------------------------------
-| data     | Array |[ ]| ✓          | Data source: each item in the data source must be an object, and each item must pass in a unique ID value `{ID: number | string}`. When the type is`waterfall`, each item passes in the height field `{height: number | string}`, that is, the height of each item|
+| data     | Array |[ ]| ✓          | Data source: each item in the data source must be an object, and each item must pass in a unique ID value `{ID: number \| string}`. When the type is`waterfall`, each item passes in the height field `{height: number | string}`, that is, the height of each item|
 | type | String    | | ✓ |  Type: three types can be specified: `fixed` ,`variable`, `waterfall`. Fixed: the height of the item is a fixed value. Variable: the height of the item supports the waterfall layout according to the content                             |
 | remain   | Number \| String    | |  ✓  |  Number of visible data per screen |
 | size   | Number \| String    |  |   |  Size is the height of each item. When type is `fixed` or `variable`, size is required. When type is `variable`, size will be used as the default height of each item. After DOM rendering, the default height will be replaced by the real height |
