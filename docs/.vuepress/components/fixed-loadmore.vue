@@ -31,7 +31,7 @@ let price = ['25元', '30元', '16元']
 let time = ['2017年7月26日 17:04', '2019年5月23日 19:28', '2020年12月25日 10:57']
 let address = ['中南物业居然之家商都路店服务点', '北四环天桥海航路店服务点', '南二环东亭路机场新天地店服务点']
 let items = []
-let count = 20
+let count = 30
 for (let i = 0; i < count; i++) {
   items.push({ id: i, address: address[i % 3], status: status[i % 3], price: price[i % 3], time: time[i % 3] })
 }

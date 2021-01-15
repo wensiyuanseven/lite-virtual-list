@@ -17,7 +17,7 @@
         </div>
       </template>
       <template v-else>
-        <div v-for="item in renderData" :key="item.id" :vid="item.id" ref="nodes">
+        <div v-for="item in renderData" :key="item.id" :vIndex="item.index" ref="nodes">
           <slot :item="item"></slot>
         </div>
       </template>
@@ -82,6 +82,10 @@ export default {
       type: [Number, String],
       required: false,
       default: 0,
+    },
+    deleteId: {
+      type: [Number, String],
+      required: false,
     },
   },
   data() {
@@ -150,11 +154,14 @@ export default {
     },
   },
   watch: {
-    data(newData, oldData) {
+    deleteId(id) {
+      this.deleteItem(id)
+    },
+    data(newData) {
       // 防止组件外部单个item更改状态后触发watch 例
       // item.visible = true
       // this.$set(this.items, item.id, item)
-      if (newData.length === oldData.length) return
+      // if (newData.length === oldData.length) return
       let prevLength, newLoadData
       switch (this.type) {
         case virtualType.FIXED:
@@ -212,6 +219,7 @@ export default {
         }
         break
     }
+    this.deleteId && this.deleteItem(this.deleteId)
   },
   updated() {
     this.$nextTick(() => {
@@ -220,7 +228,7 @@ export default {
         //用节点更新缓存
         nodes.forEach((node) => {
           let { height } = node.getBoundingClientRect()
-          let index = +node.getAttribute('vid')
+          let index = +node.getAttribute('vIndex')
           let oldHeight = this.variableData[index].height
           let difference = oldHeight - height
           if (difference) {
@@ -237,6 +245,35 @@ export default {
     })
   },
   methods: {
+    deleteItem(id) {
+      let deleteIndex = this.data.findIndex((item) => item.id == id)
+      if (deleteIndex > -1) {
+        let deleteItem
+        this.data.splice(deleteIndex, 1)
+        if (this.type === virtualType.FIXED) {
+          deleteItem = this.data[deleteIndex]
+        }
+        if (this.type === virtualType.VARIABLE) {
+          deleteItem = this.variableData[deleteIndex]
+          this.variableData.splice(deleteIndex, 1)
+          // 更新位置坐标
+          for (let i = deleteItem.index; i < this.variableData.length; i++) {
+            this.variableData[i].index = this.variableData[i].index - 1
+            this.variableData[i].top = this.variableData[i].top - deleteItem.height
+            this.variableData[i].bottom = this.variableData[i].bottom - deleteItem.height
+          }
+        }
+        if (this.type === virtualType.WATERFALL) {
+          if (this.waterfallInfo) {
+            deleteItem = [...this.waterfallInfo.left, ...this.waterfallInfo.right].find((item) => item.id == id)
+          }
+          this.waterfallInfo = { left: [], right: [] }
+          this.leftHeight = this.rightHieght = 0
+          this.handleWaterfallData(this.data)
+        }
+        this.$emit('deleteSuccess', deleteItem)
+      }
+    },
     setStyle(item) {
       if (this.marginBottom === 0) {
         return { height: item.height + this.unit }
@@ -286,8 +323,9 @@ export default {
     },
     getVisiblePosition(data) {
       if (!data.length) return []
-      const prevLength = this.variableData.length
+      const prevLength = this.variableData ? this.variableData.length : 0
       let result = data.map((item, index) => ({
+        id: item.id,
         index: prevLength + index,
         height: this.size,
         top: (prevLength + index) * this.size,
@@ -315,14 +353,6 @@ export default {
         }
       }
       return data
-    },
-    initVariablePosition() {
-      this.variableData = this.data.map((item, index) => ({
-        index,
-        height: this.size,
-        top: index * this.size,
-        bottom: (index + 1) * this.size,
-      }))
     },
     emitScrollEvent() {
       if (this.type === virtualType.WATERFALL) {

@@ -1,7 +1,7 @@
 <template>
   <div class="waterfall">
-    <lite-virtual-list  type="waterfall" :screen="[2, 2]" :marginBottom="12" :remain="8" virtualHieght="500px"  :data="items" :distance="100">
-      <div class="item" slot-scope="{ item }">
+    <lite-virtual-list  type="waterfall" :screen="[2, 2]" :marginBottom="12" @deleteSuccess="deleteSuccess" :deleteId='deleteId' :remain="8" virtualHieght="500px"  :data="items" :distance="100">
+      <div class="item" slot-scope="{ item }" @click='deletItem(item)'>
         <span class="index">#{{ item.id + 1 }}</span>&nbsp;<span>{{ item.value }}</span>
       </div>
     </lite-virtual-list>
@@ -14,10 +14,10 @@ import Mock from 'mockjs'
 export default {
   name: 'waterfall-size',
   data() {
-    return { items: [] }
+    return { items: [], deleteId: null }
   },
   mounted() {
-    let count = 1000
+    let count = 100
     let items = []
     for (let i = 0; i < count; i++) {
       let value = Mock.Random.cparagraph(3, 7)
@@ -27,9 +27,15 @@ export default {
         value: value,
       })
     }
-    this.items = Object.freeze(items)
+    this.items = items
   },
   methods: {
+    deletItem(item) {
+      this.deleteId = item.id
+    },
+    deleteSuccess(item) {
+      console.log(item)
+    },
     getValueHeight(value, index) {
       let node = document.createElement('div')
       node.innerHTML = `#${index} ${value}`

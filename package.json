@@ -1,6 +1,6 @@
 {
   "name": "lite-virtual-list",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": false,
   "author": "wensiyuan siyusnseven@gmail.com",
   "description": "a vue components support waterfall flow and have large data lists with high scrolling performance",
