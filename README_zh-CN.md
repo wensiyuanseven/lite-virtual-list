@@ -62,7 +62,7 @@ Vue.use(liteVirtualList)
 
 | Props    | Type  |Default| Required   | Description                                   |
 |:---------|:------|:-----------|:------------|:----------------------------------------
-| data     | Array |[ ]| ✓          | 数据源,数据源中的每个item必须是一个对象, 每个item必须传入一个唯一id值  `{ id : Number \| String }`,当type为`waterfall`时,每个item传入height字段 `{ height : Number | String }`,即每一项item的高度|
+| data     | Array |[ ]| ✓          | 数据源,数据源中的每个item必须是一个对象, 每个item必须传入一个唯一id值  `{ id : Number \| String }`,当type为`waterfall`时,每个item传入height字段 `{ height : Number \| String }`,即每一项item的高度|
 | type | String    | | ✓ |  type可指定三种类型 `fixed` `variable` `waterfall` fixed : item的高度为固定值    variable : item的高度根据内容撑起  waterfall : 瀑布流布局                              |
 | remain   | Number \| String    | |  ✓  |  每屏可见的数据条数 |
 | size   | Number \| String    |  |   |  size是每一项item的高度。 当type为 `fixed`或 `variable` 时size为必传项。 type为`variable`时 size会被当做每一项的默认高度，当DOM渲染完成后会用真实高度替换此默认高度 |
