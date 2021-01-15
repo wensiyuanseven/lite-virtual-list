@@ -87,7 +87,7 @@ Vue.use(liteVirtualList)
 
     <!-- bottom -->
     <template slot="bottom">
-      <div>加载中...</div>
+      <div>Loading...</div>
     </template>
   </lite-virtual-list>
  ```
