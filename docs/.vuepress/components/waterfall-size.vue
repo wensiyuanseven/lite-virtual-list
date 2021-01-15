@@ -17,7 +17,7 @@ export default {
     return { items: [], deleteId: null }
   },
   mounted() {
-    let count = 100
+    let count = 1000
     let items = []
     for (let i = 0; i < count; i++) {
       let value = Mock.Random.cparagraph(3, 7)

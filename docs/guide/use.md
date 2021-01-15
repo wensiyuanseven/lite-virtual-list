@@ -46,7 +46,7 @@ Vue.use(liteVirtualList)
 | interval   | Number \| String    | 0|   |  `scroll`事件触发间隔,默认为`0` |
 | virtualHieght   | String    | 100%|   |  虚拟列表的高度,默认为`100%`。当type为`fixed`时，高度会根据`size`和`remain`属性动态计算出来，不用传入此值。当type为`variable`或 `waterfall`时，若不传入此属性，外部容器必须声明一个高度值。 |
 | unit   | String    | px |   |  单位，默认为`px` |
-| deleteId   |  Number \| String  |   |  | 动态删除某一项时需要传入当前项目的id值,当type为`fixed`时，不传deleteId,直接`this.data.splice(index,1)`删除也行,此时内部会动态计算高值
+| deleteId   |  Number \| String  |   |  | 动态删除某一项时需要传入当前项目的id值,当type为`fixed`时，不传deleteId,直接`this.data.splice(index,1)`删除也行,此时内部会动态计算高度
 | marginBottom   |  Number \| String     |  0 |  |  每项item的间隔距离。 此属性专门为`type='waterfall'`时提供,type为`fixed`或`variable`时此属性无效 |
 
 ## Slot
