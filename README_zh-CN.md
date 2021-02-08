@@ -1,6 +1,8 @@
 # lite-virtual-list
 
  ![version](https://img.shields.io/github/package-json/v/wensiyuanseven/lite-virtual-list) ![last commit](https://img.shields.io/github/last-commit/wensiyuanseven/lite-virtual-list)  ![issues](https://img.shields.io/github/issues/wensiyuanseven/lite-virtual-list)
+ 
+ [English](README.md)  | 中文 | [Example](https://wensiyuanseven.github.io/lite-virtual-list/example)
 
 ## 基于vue的高性能虚拟列表组件库
 
