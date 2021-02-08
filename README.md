@@ -2,6 +2,8 @@
 
  ![version](https://img.shields.io/github/package-json/v/wensiyuanseven/lite-virtual-list) ![last commit](https://img.shields.io/github/last-commit/wensiyuanseven/lite-virtual-list)  ![issues](https://img.shields.io/github/issues/wensiyuanseven/lite-virtual-list)
 
+ English | [中文](README_zh-CN.md) | [Example](https://wensiyuanseven.github.io/lite-virtual-list/example)
+ 
 ## Virtual list component library supporting waterfall flow based on Vue
 
 - **Support fixed height**
@@ -18,11 +20,6 @@
 
 - **Support dynamic deletion of data**
 
-[中文文档](https://github.com/wensiyuanseven/lite-virtual-list/blob/master/README_zh-CN.md)
-
- Document：<https://wensiyuanseven.github.io/lite-virtual-list>
-
- Example：<https://wensiyuanseven.github.io/lite-virtual-list/example>
 
 ## Use
 
