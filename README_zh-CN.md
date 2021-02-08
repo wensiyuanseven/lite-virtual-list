@@ -20,10 +20,6 @@
 
 - **支持动态删除数据**
 
-#### 文档：<https://wensiyuanseven.github.io/lite-virtual-list>
-
-#### 案例：<https://wensiyuanseven.github.io/lite-virtual-list/example>
-
 ## 用法
 
 ### 安装
