@@ -405,7 +405,7 @@ export default {
   },
 }
 </script>
-<style>
+<style scoped>
 .virtual-list {
   overflow-y: auto;
   position: relative;
