@@ -67,7 +67,7 @@ Vue.use(liteVirtualList)
 | screen   | Array    | [ 1 , 1 ]|   |  可视区前后渲染的屏数。 默认值为`[1,1]`,可视区前后各渲染一屏。 例：:screen="[2,3]" 表示可视区前面渲染两屏，可视区后面渲染三屏。 |
 | distance   | Number \| String    |50|    |  页面滚动时触发`loadMore`回调的距离,默认为`50` |
 | interval   | Number \| String    | 0|   |  `scroll`事件触发间隔,默认为`0` |
-| virtualHieght   | String    | 100%|   |  虚拟列表的高度,默认为`100%`。当type为`fixed`时，高度会根据`size`和`remain`属性动态计算出来，不用传入此值。当type为`variable`或 `waterfall`时，若不传入此属性，外部容器必须声明一个高度值。 |
+| virtualHeight   | String    | 100%|   |  虚拟列表的高度,默认为`100%`。当type为`fixed`时，高度会根据`size`和`remain`属性动态计算出来，不用传入此值。当type为`variable`或 `waterfall`时，若不传入此属性，外部容器必须声明一个高度值。 |
 | unit   | String    | px |   |  单位，默认为`px` |
 | deleteId   |  Number \| String  |   |  | 动态删除某一项时需要传入当前项目的id值,当type为`fixed`时，不传deleteId,直接`this.data.splice(index,1)`删除也行,此时内部会动态计算高度
 | marginBottom   |  Number \| String     |  0 |  |  每项item的间隔距离。 此属性专门为`type='waterfall'`时提供,type为`fixed`或`variable`时此属性无效 |

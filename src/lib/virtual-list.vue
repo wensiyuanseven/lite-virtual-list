@@ -68,7 +68,7 @@ export default {
       required: false,
       default: 0,
     },
-    virtualHieght: {
+    virtualHeight: {
       type: String,
       required: false,
       default: '100%',
@@ -206,12 +206,12 @@ export default {
         break
       case virtualType.VARIABLE:
         this.variableData = []
-        this.$refs.virtualList.style.height = this.virtualHieght
+        this.$refs.virtualList.style.height = this.virtualHeight
         this.variableData = this.getVisiblePosition(this.data)
         break
       case virtualType.WATERFALL:
         // 必须设置scrollList高度否则scrollList的高度会被 容器内容撑起造成高度与virtualList不同 则会出现滚动条偏移问题
-        this.$refs.virtualList.style.height = this.$refs.scrollList.style.height = this.virtualHieght
+        this.$refs.virtualList.style.height = this.$refs.scrollList.style.height = this.virtualHeight
         this.leftEnd = this.leftStart + this.remain
         this.rightEnd = this.rightStart + this.remain
         if (this.data && this.data.length) {
